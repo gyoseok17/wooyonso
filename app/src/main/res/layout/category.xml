@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageButton
+        android:id="@+id/ibCate1"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:src="@drawable/jeju13"
+        android:layout_margin="10dp"
+        android:layout_above="@+id/btnCate2"/>
+    <Button
+        android:id="@+id/btnCate2"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#ff0000"
+        android:layout_margin="10dp"/>
+    <Button
+        android:id="@+id/btnCate3"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/btnCate2"/>
+
+
+</RelativeLayout>
