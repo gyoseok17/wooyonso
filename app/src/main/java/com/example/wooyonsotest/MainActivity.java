@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction(); // 주문내역으로 이동
-                ft.replace(R.id.frameLayout, new FragmentView());
-                ft.addToBackStack(null);
-                ft.commit();
+                ft.replace(R.id.frameLayout, new FragmentView())
+                        .addToBackStack(null)
+                        .commit();
+
             }
         });
 
