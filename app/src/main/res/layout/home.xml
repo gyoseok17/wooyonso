@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainLinear"
     android:orientation="vertical"
     tools:context=".HomeActivity"
-    android:background="@drawable/mainpicture">
+    android:id="@+id/DrawerLayout"
+    android:background="#013871">
 
     <ImageView
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="100dp"
-        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/mascote" />
+        android:src="@drawable/loading"/>
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </FrameLayout>
-</RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

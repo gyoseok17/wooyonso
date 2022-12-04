@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -16,48 +15,47 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.wooyonsotest.Club.ClubMainFragment;
 
-import java.util.List;
-
 //프래그먼트는 액티비티위에 올라가있을떄만 프래그먼트로서 동작할 수 있다.
 public class CategoryFragment extends Fragment {
-    ImageButton ibCate1;
-    Button[] btnCate = new Button[2];
-    int[] btnCateId = {R.id.btnCate2, R.id.btnCate3};
+    ImageButton[] ibCate = new ImageButton[3];
+    int[] ibCateId = {R.id.ibCate1, R.id.ibCate2, R.id.ibCate3};
     Context context;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.category, container, false);
         this.context = container.getContext();
 
-        ibCate1 = (ImageButton)root.findViewById(R.id.ibCate1);
-        ibCate1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction ft = ((HomeActivity)getActivity()).getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.frameLayout, new ClubMainFragment());
-                ft.addToBackStack(null);
-                ft.commit();
-            }
-        });
-        btnCateClickEvent(root);
+        ibCateClickEvent(root);
         return root;
     }
 
-    public void btnCateClickEvent(View root){
-        for(int i=0; i<btnCateId.length; i++){
-            btnCate[i] = (Button) root.findViewById(btnCateId[i]);
+    public void ibCateClickEvent(View root){
+        for(int i=0; i<ibCateId.length; i++){
+            ibCate[i] = (ImageButton) root.findViewById(ibCateId[i]);
         }
-        for(int i=0; i<btnCateId.length; i++){
+        for(int i=0; i<ibCateId.length; i++){
             int finalI = i;
-            btnCate[i].setOnClickListener(new View.OnClickListener() {
+            ibCate[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    FragmentTransaction ft = ((HomeActivity)getActivity()).getSupportFragmentManager().beginTransaction();
-//                    ft.replace(R.id.frameLayout, new ClubMainFragment());
-//                    ft.addToBackStack(null);
-//                    ft.commit();
-                    Toast.makeText(context.getApplicationContext(),(finalI+2)+"번 메뉴 선택",Toast.LENGTH_SHORT).show();
+                    FragmentTransaction ft = ((HomeActivity)getActivity()).getSupportFragmentManager().beginTransaction();
+                    switch (ibCateId[finalI]){
+                        case R.id.ibCate1:
+                            ft.replace(R.id.frameLayout, new ClubMainFragment());
+                            break;
+                        case R.id.ibCate2:
+                            //ft.replace(R.id.frameLayout, new Club1MainFragment());
+                            Toast.makeText(getContext(),""+finalI+"",Toast.LENGTH_SHORT).show();
+                            break;
+                        case R.id.ibCate3:
+                            Toast.makeText(getContext(),""+finalI+"",Toast.LENGTH_SHORT).show();
+                            //ft.replace(R.id.frameLayout, new Club1MainFragment());
+                            break;
+                    }
+                    ft.addToBackStack(null);
+                    ft.commit();
                 }
             });
         }
